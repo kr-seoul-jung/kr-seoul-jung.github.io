@@ -122,35 +122,596 @@
   ]
 }
   </script>
-  <style>
-:root { --fg:#1a1a2e; --muted:#5c5c72; --accent:#2d5bff; --bg:#ffffff; --card:#f6f7fb; --line:#e6e8f0; }
-* { box-sizing: border-box; }
-body { margin:0; font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; color:var(--fg); background:var(--bg); line-height:1.7; }
-main { max-width: 760px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
-header { padding: 2rem 0 1rem; border-bottom: 2px solid var(--line); margin-bottom: 1.5rem; }
-.eyebrow { color: var(--accent); font-weight: 600; margin: 0 0 .25rem; letter-spacing: .02em; }
-h1 { font-size: 2.4rem; margin: 0; }
-h2 { font-size: 1.25rem; margin: 2rem 0 .5rem; padding-left: .6rem; border-left: 4px solid var(--accent); }
-section p { margin: .25rem 0 0; }
-ul { margin: .5rem 0 0; padding-left: 1.2rem; }
-li { margin: .25rem 0; }
-.facts, .symbols { list-style: none; padding: 1rem 1.2rem; background: var(--card); border-radius: 12px; }
-.faq details { border: 1px solid var(--line); border-radius: 10px; padding: .5rem .9rem; margin: .5rem 0; }
-.faq summary { cursor: pointer; font-weight: 600; }
-.faq details p { margin: .5rem 0 .25rem; color: var(--muted); }
-.sources { font-size: .9rem; color: var(--muted); }
-a { color: var(--accent); }
-footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; }
-</style>
+  <script id="region-data" type="application/json">
+{
+  "characteristics": "중구는 2024년 기준 인구가 약 12만 명으로 서울에서 인구가 가장 적은 자치구지만, 주간 유동 인구는 이를 몇 배로 웃도는 전형적인 중심업무지구다. 74개 법정동과 15개 행정동으로 구성되며 구청은 광희동에 자리한다. 소공동·북창동에는 무역상사·은행 본점·대기업 사옥이 몰려 있고, 을지로에는 기계·공구·조명·인쇄 등 도심형 제조 상권이 촘촘한 골목을 이룬다. 남대문시장과 명동, 롯데·신세계 백화점이 재래시장과 현대 유통을 나란히 품어 소비 지형이 다층적이다. 조선일보·중앙일보 등 언론사 본사와 금융기관이 집중돼 행정·금융·언론이 교차하는 도심의 성격이 뚜렷하다.",
+  "coords": {
+    "lat": 37.5641,
+    "lng": 126.9979
+  },
+  "cultural_heritage": [
+    {
+      "description": "1898년 완공된 한국 최초의 벽돌조 고딕 성당으로, 사적으로 지정된 천주교 서울대교구 주교좌 성당이다.",
+      "name": "명동성당"
+    },
+    {
+      "description": "필동에 전통 한옥 다섯 채와 정원을 옮겨 조성한 문화시설로, 세시풍속과 전통 공연·체험 행사가 열린다.",
+      "name": "남산골한옥마을"
+    },
+    {
+      "description": "흥인동에 자리한 중구의 복합 공연장으로, 대극장과 소극장을 갖춰 뮤지컬과 연극 무대가 꾸준히 오른다.",
+      "name": "충무아트센터"
+    },
+    {
+      "description": "청계천 일대에서 겨울마다 열리는 등불 축제로, 형형색색 빛 조형물이 물길을 밝히는 서울 대표 야간 행사다.",
+      "name": "서울빛초롱축제"
+    },
+    {
+      "description": "덕수궁 돌담길과 정동 일대에서 근대 역사와 문화를 밤에 걸으며 체험하는 도심형 야간 축제다.",
+      "name": "정동야행"
+    }
+  ],
+  "faq": [
+    {
+      "answer": "중구청은 광희동 일대에 자리하며, 지하철 2·4·5호선 동대문역사문화공원역이 가까워 접근이 편리합니다.",
+      "question": "중구청은 어디에 있나요?"
+    },
+    {
+      "answer": "명동과 남대문시장에서 쇼핑과 먹거리를 즐기고, 덕수궁과 남산 N서울타워에서 역사와 전망을 함께 둘러보길 추천합니다.",
+      "question": "중구에서 꼭 가봐야 할 명소는 어디인가요?"
+    },
+    {
+      "answer": "면적이 9.96제곱킬로미터로 서울 25개 자치구 가운데 가장 작으며, 인구도 약 12만 명으로 가장 적은 편입니다.",
+      "question": "중구는 서울에서 어느 정도 크기인가요?"
+    },
+    {
+      "answer": "서울 지하철 1호선부터 6호선까지 대부분의 노선이 지나고 서울역과 시청역이 있어 서울 어디서나 접근하기 편합니다.",
+      "question": "중구로 가는 대중교통은 어떻게 되나요?"
+    },
+    {
+      "answer": "신당동은 즉석떡볶이의 발상지로 알려진 곳으로, 오래된 노포들이 매콤달콤한 즉석떡볶이를 내는 먹자골목으로 이름났습니다.",
+      "question": "신당동 떡볶이 골목은 무엇으로 유명한가요?"
+    },
+    {
+      "answer": "겨울에는 청계천에서 서울빛초롱축제가, 봄가을에는 덕수궁 돌담길 일대에서 정동야행이 열립니다.",
+      "question": "중구에서 열리는 대표 축제는 무엇인가요?"
+    }
+  ],
+  "geography_nature": "중구는 서울 도심부 정중앙에 자리하며 북쪽으로 종로구, 동쪽으로 성동구, 서쪽으로 서대문구·마포구, 남쪽으로 용산구와 맞닿아 있다. 면적은 9.96제곱킬로미터로 서울 25개 자치구 가운데 가장 좁지만, 그 안에 업무·상업·주거 기능이 빼곡히 압축돼 있다. 남쪽 경계에는 해발 265미터의 남산이 용산구와 걸쳐 솟아 도심 어디서나 눈에 들어오는 상징적 녹지가 된다. 북악산과 남산 자락에서 발원한 청계천이 구의 북부를 동서로 가로질러 흐른 뒤 중랑천을 만나 한강으로 흘러든다. 대체로 평지가 넓게 펼쳐진 도심이지만 남산과 필동·장충동 일대에는 완만한 구릉지가 이어져 지형에 표정을 더한다.",
+  "history": "중구라는 지명은 일제강점기에 남촌 일대가 경성부의 중심이라 하여 붙여졌고, 1943년 6월 10일 구제 실시와 함께 중구역소가 설치되면서 행정구역으로 자리 잡았다. 이어 1946년 9월 28일에 서울시 중구로 승격되었고, 1979년 현재의 중구청 청사가 완공되어 오늘에 이른다. 조선시대에는 청계천을 경계로 남산 자락에 남촌이 형성되었고, 이곳에 벼슬에서 물러난 선비와 하급 관리들이 모여 살았다. 개항 이후 명동과 충무로 일대가 근대 금융과 인쇄, 상업의 중심지로 빠르게 성장하면서 도심의 격이 달라졌다. 지금도 서울시청과 한국은행 본점을 비롯한 주요 기관이 밀집해 서울의 원도심이자 심장부로 기능하고 있다.",
+  "intro": "중구는 서울 도심 한복판에 위치한 자치구로, 명동과 남대문시장을 축으로 한 상업과 남산을 품은 도심 녹지가 어우러진 곳이다. 서울시청, 서울역, 을지로 업무지구가 한데 모여 대한민국 행정과 교통, 금융의 관문 역할을 오랫동안 해 왔다. 덕수궁 돌담길과 명동성당, 정동 일대에는 개항기와 근대의 흔적이 골목마다 촘촘히 남아 있다. 낮에는 넥타이 부대와 외국인 관광객으로, 밤에는 명동과 을지로 노포 상권으로 밤낮없이 붐비는 도심의 심장이다. 면적은 서울에서 가장 작지만 오가는 유동 인구와 경제적 밀도는 어느 구에도 뒤지지 않는다.",
+  "landmarks": [
+    {
+      "description": "서울을 대표하는 쇼핑·관광 거리로, 명동성당과 화장품·패션 매장이 밀집해 국내외 관광객이 사시사철 몰린다.",
+      "name": "명동"
+    },
+    {
+      "description": "600년 넘는 역사를 지닌 대형 재래시장으로 의류·잡화·먹거리로 이름난 서울의 대표 시장이다.",
+      "name": "남대문시장"
+    },
+    {
+      "description": "대한제국의 정궁으로 서양식 석조전과 돌담길, 왕궁 수문장 교대의식으로 잘 알려진 사적이다.",
+      "name": "덕수궁"
+    },
+    {
+      "description": "남산 정상에 자리한 서울의 랜드마크 전망탑으로, 케이블카를 타고 올라 도심 야경을 한눈에 담을 수 있다.",
+      "name": "N서울타워"
+    },
+    {
+      "description": "즉석떡볶이의 발상지로 알려진 먹자골목으로, 오래된 노포들이 매콤달콤한 즉석떡볶이를 내며 명물 상권을 이룬다.",
+      "name": "신당동 떡볶이 골목"
+    }
+  ],
+  "nature_rest": [
+    {
+      "description": "해발 265미터 남산 자락에 조성된 도심 속 공원으로 산책로와 순환버스, 봉수대가 어우러져 시민의 쉼터가 된다.",
+      "name": "남산공원"
+    },
+    {
+      "description": "복원 이후 도심을 가로지르는 물길을 따라 산책로가 이어져, 직장인과 관광객이 즐겨 찾는 대표적 도심 휴식 공간이다.",
+      "name": "청계천"
+    },
+    {
+      "description": "남산을 완만하게 한 바퀴 도는 둘레길로, 서울 도심 풍경과 사계절 숲을 함께 즐길 수 있는 걷기 코스다.",
+      "name": "남산 순환산책로"
+    },
+    {
+      "description": "장충동에 자리한 근대 사적 공원으로, 수령 오랜 나무와 산책로가 어우러져 남산과 이어지는 녹지축을 이룬다.",
+      "name": "장충단공원"
+    }
+  ],
+  "org_slug": "kr-seoul-jung",
+  "sido": "서울특별시",
+  "sigungu": "중구",
+  "symbols": {
+    "bird": "까치",
+    "flower": "장미",
+    "tree": "소나무"
+  },
+  "transport": "중구에는 서울 지하철 1호선부터 6호선까지 대부분의 노선이 지나 서울에서 손꼽히는 교통 요지로 꼽힌다. 서울역은 KTX와 공항철도, 1호선·4호선·경의중앙선이 만나는 국가적 관문이며, 시청역과 을지로입구역은 업무지구를 촘촘히 잇는다. 명동역·회현역·충무로역·동대문역사문화공원역 등은 관광과 상권의 출입구 역할을 한다. 세종대로와 을지로, 퇴계로가 도심을 동서로 관통하고 남대문로가 남북을 가르며 간선 교통을 담당한다. 서울역과 명동 일대에서는 공항버스와 시내버스 노선이 촘촘히 연결돼 도심 접근성이 뛰어나다."
+}
+  </script>
 </head>
 <body>
-  <main>
-    <header>
-      <p class="eyebrow">서울특별시</p>
-      <h1>중구</h1>
-    </header>
-    <div class="content">
-      <section id="intro">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root{
+  --ink:#000080;
+  --gold:#CFB53B;
+  --paper:#f4f1e8;
+  --paper-edge:#e6e1d2;
+  --rule:#1a1a1a;
+  --news-serif:"KoPubWorld 바탕체","KoPubWorldBatang","Noto Serif KR","Noto Serif",Georgia,"Nanum Myeongjo",serif;
+}
+
+.jung-paper *{box-sizing:border-box;}
+.jung-paper{
+  font-family:var(--news-serif);
+  background:var(--paper);
+  color:#141414;
+  line-height:1.72;
+  max-width:1180px;
+  margin:0 auto;
+  padding:14px 18px 46px;
+  border-radius:0;
+  -webkit-font-smoothing:antialiased;
+  position:relative;
+}
+.jung-paper::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  border:1px solid var(--paper-edge);
+  box-shadow:inset 0 0 0 6px var(--paper), inset 0 0 0 7px rgba(0,0,128,.14);
+}
+
+/* ------- Masthead / nameplate ------- */
+.jp-plate{
+  border-top:6px double var(--ink);
+  border-bottom:3px solid var(--ink);
+  padding:10px 0 8px;
+  text-align:center;
+  position:relative;
+}
+.jp-plate .jp-ears{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  font-size:.72rem;letter-spacing:.02em;color:#3a3a3a;
+  padding:0 4px 6px;text-transform:none;
+}
+.jp-plate .jp-ears b{color:var(--ink);font-weight:700;}
+.jp-title{
+  font-family:var(--news-serif);
+  font-weight:900;
+  color:var(--ink);
+  font-size:clamp(2.4rem,7vw,4.6rem);
+  line-height:.98;
+  letter-spacing:-.01em;
+  margin:0;
+}
+.jp-title .jp-gu{color:var(--ink);}
+.jp-sub{
+  font-style:italic;
+  font-size:clamp(.82rem,2vw,1rem);
+  color:#333;
+  margin:6px 0 0;
+  font-family:"Noto Serif",Georgia,serif;
+}
+.jp-dateline{
+  display:flex;justify-content:space-between;align-items:center;
+  border-top:1.5px solid var(--rule);
+  border-bottom:1.5px solid var(--rule);
+  margin-top:9px;padding:5px 4px;
+  font-size:.74rem;letter-spacing:.03em;color:#2a2a2a;
+  flex-wrap:wrap;gap:6px;
+}
+.jp-dateline .jp-vol{color:var(--ink);font-weight:700;}
+.jp-dateline .jp-price{
+  font-weight:700;color:#141414;
+  border:1px solid var(--ink);padding:1px 7px;border-radius:0;
+}
+
+/* ------- Index bar (JS-enhanced nav, degrades to plain text) ------- */
+.jp-index{
+  margin-top:10px;padding:7px 8px;
+  border-bottom:3px double var(--ink);
+  display:flex;flex-wrap:wrap;gap:0;
+  font-size:.72rem;letter-spacing:.01em;
+  align-items:center;justify-content:center;
+}
+.jp-index .jp-idx-label{
+  color:var(--ink);font-weight:700;margin-right:8px;
+  font-variant:small-caps;letter-spacing:.06em;
+}
+.jp-index a{
+  color:#1a1a1a;text-decoration:none;
+  padding:2px 10px;position:relative;
+  border-right:1px solid rgba(0,0,0,.28);
+}
+.jp-index a:first-of-type{border-left:1px solid rgba(0,0,0,.28);}
+.jp-index a:hover{color:var(--ink);background:var(--gold);text-decoration:none;}
+
+/* ------- Lead / hero row ------- */
+.jp-lead{
+  display:grid;
+  grid-template-columns:1.55fr .95fr;
+  gap:0;
+  border-bottom:2px solid var(--rule);
+  margin-top:12px;
+}
+.jp-lead-main{
+  padding:14px 22px 16px 4px;
+  border-right:2px solid var(--rule);
+}
+.jp-kicker{
+  font-size:.72rem;letter-spacing:.22em;
+  text-transform:uppercase;color:#8a1a1a;font-weight:700;
+  font-family:"Noto Serif",Georgia,serif;
+  margin-bottom:4px;
+}
+.jp-headline{
+  font-weight:900;color:var(--ink);
+  font-size:clamp(1.7rem,4.2vw,2.9rem);
+  line-height:1.06;letter-spacing:-.015em;
+  margin:0 0 8px;
+}
+.jp-deck{
+  font-style:italic;font-size:1.02rem;color:#2b2b2b;
+  border-top:1px solid rgba(0,0,0,.25);
+  border-bottom:1px solid rgba(0,0,0,.25);
+  padding:6px 0;margin:0 0 12px;
+}
+.jp-lead-body{
+  columns:2;column-gap:1.6rem;column-rule:1px solid rgba(0,0,0,.32);
+  font-size:.95rem;text-align:justify;hyphens:auto;
+  word-break:keep-all;
+}
+.jp-lead-body p{margin:0 0 .7rem;}
+.jp-lead-body p:first-child::first-letter{
+  font-family:"Noto Serif",Georgia,serif;
+  font-weight:700;float:left;color:var(--ink);
+  font-size:3.3rem;line-height:.72;
+  padding:6px 8px 0 0;
+}
+.jp-lead-side{
+  padding:14px 4px 16px 20px;
+}
+.jp-side-head{
+  font-weight:700;color:var(--ink);
+  border-bottom:2px solid var(--ink);
+  padding-bottom:3px;margin:0 0 8px;
+  font-size:1.05rem;
+  display:flex;align-items:center;gap:7px;
+}
+.jp-side-head::before{content:"◆";color:var(--gold);font-size:.8em;}
+.jp-fastfacts{list-style:none;margin:0 0 14px;padding:0;font-size:.86rem;}
+.jp-fastfacts li{
+  padding:5px 0;border-bottom:1px dotted rgba(0,0,0,.3);
+  display:flex;justify-content:space-between;gap:10px;
+}
+.jp-fastfacts li span:first-child{color:#555;}
+.jp-fastfacts li span:last-child{color:var(--ink);font-weight:700;text-align:right;}
+.jp-weatherbox{
+  border:1px solid var(--ink);border-radius:0;
+  padding:8px 10px;font-size:.8rem;color:#333;
+  background:rgba(207,181,59,.12);
+}
+.jp-weatherbox b{color:var(--ink);}
+
+/* ------- Main body: the multi-column broadsheet ------- */
+.jp-body-wrap{padding:16px 4px 0;}
+.jp-body-title{
+  text-align:center;color:var(--ink);font-weight:900;
+  font-size:1.15rem;letter-spacing:.05em;
+  border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
+  padding:6px 0;margin:0 0 16px;
+  font-variant:small-caps;
+}
+
+/* The       <section id="intro">
+        <h2>지역 소개</h2>
+        <p>중구는 서울 도심 한복판에 위치한 자치구로, 명동과 남대문시장을 축으로 한 상업과 남산을 품은 도심 녹지가 어우러진 곳이다. 서울시청, 서울역, 을지로 업무지구가 한데 모여 대한민국 행정과 교통, 금융의 관문 역할을 오랫동안 해 왔다. 덕수궁 돌담길과 명동성당, 정동 일대에는 개항기와 근대의 흔적이 골목마다 촘촘히 남아 있다. 낮에는 넥타이 부대와 외국인 관광객으로, 밤에는 명동과 을지로 노포 상권으로 밤낮없이 붐비는 도심의 심장이다. 면적은 서울에서 가장 작지만 오가는 유동 인구와 경제적 밀도는 어느 구에도 뒤지지 않는다.</p>
+      </section>
+      <section id="facts">
+        <h2>주요 통계</h2>
+        <ul class="facts">
+          <li>인구: 약 121,322명 (2024)</li>
+          <li>면적: 9.96 km²</li>
+          <li>신설: 1943-06-10</li>
+        </ul>
+      </section>
+      <section id="history">
+        <h2>역사</h2>
+        <p>중구라는 지명은 일제강점기에 남촌 일대가 경성부의 중심이라 하여 붙여졌고, 1943년 6월 10일 구제 실시와 함께 중구역소가 설치되면서 행정구역으로 자리 잡았다. 이어 1946년 9월 28일에 서울시 중구로 승격되었고, 1979년 현재의 중구청 청사가 완공되어 오늘에 이른다. 조선시대에는 청계천을 경계로 남산 자락에 남촌이 형성되었고, 이곳에 벼슬에서 물러난 선비와 하급 관리들이 모여 살았다. 개항 이후 명동과 충무로 일대가 근대 금융과 인쇄, 상업의 중심지로 빠르게 성장하면서 도심의 격이 달라졌다. 지금도 서울시청과 한국은행 본점을 비롯한 주요 기관이 밀집해 서울의 원도심이자 심장부로 기능하고 있다.</p>
+      </section>
+      <section id="geography">
+        <h2>지리·자연환경</h2>
+        <p>중구는 서울 도심부 정중앙에 자리하며 북쪽으로 종로구, 동쪽으로 성동구, 서쪽으로 서대문구·마포구, 남쪽으로 용산구와 맞닿아 있다. 면적은 9.96제곱킬로미터로 서울 25개 자치구 가운데 가장 좁지만, 그 안에 업무·상업·주거 기능이 빼곡히 압축돼 있다. 남쪽 경계에는 해발 265미터의 남산이 용산구와 걸쳐 솟아 도심 어디서나 눈에 들어오는 상징적 녹지가 된다. 북악산과 남산 자락에서 발원한 청계천이 구의 북부를 동서로 가로질러 흐른 뒤 중랑천을 만나 한강으로 흘러든다. 대체로 평지가 넓게 펼쳐진 도심이지만 남산과 필동·장충동 일대에는 완만한 구릉지가 이어져 지형에 표정을 더한다.</p>
+      </section>
+      <section id="characteristics">
+        <h2>지역 특징</h2>
+        <p>중구는 2024년 기준 인구가 약 12만 명으로 서울에서 인구가 가장 적은 자치구지만, 주간 유동 인구는 이를 몇 배로 웃도는 전형적인 중심업무지구다. 74개 법정동과 15개 행정동으로 구성되며 구청은 광희동에 자리한다. 소공동·북창동에는 무역상사·은행 본점·대기업 사옥이 몰려 있고, 을지로에는 기계·공구·조명·인쇄 등 도심형 제조 상권이 촘촘한 골목을 이룬다. 남대문시장과 명동, 롯데·신세계 백화점이 재래시장과 현대 유통을 나란히 품어 소비 지형이 다층적이다. 조선일보·중앙일보 등 언론사 본사와 금융기관이 집중돼 행정·금융·언론이 교차하는 도심의 성격이 뚜렷하다.</p>
+      </section>
+      <section id="landmarks">
+        <h2>대표 명소</h2>
+        <ul>
+          <li><strong>명동</strong> — 서울을 대표하는 쇼핑·관광 거리로, 명동성당과 화장품·패션 매장이 밀집해 국내외 관광객이 사시사철 몰린다.</li>
+          <li><strong>남대문시장</strong> — 600년 넘는 역사를 지닌 대형 재래시장으로 의류·잡화·먹거리로 이름난 서울의 대표 시장이다.</li>
+          <li><strong>덕수궁</strong> — 대한제국의 정궁으로 서양식 석조전과 돌담길, 왕궁 수문장 교대의식으로 잘 알려진 사적이다.</li>
+          <li><strong>N서울타워</strong> — 남산 정상에 자리한 서울의 랜드마크 전망탑으로, 케이블카를 타고 올라 도심 야경을 한눈에 담을 수 있다.</li>
+          <li><strong>신당동 떡볶이 골목</strong> — 즉석떡볶이의 발상지로 알려진 먹자골목으로, 오래된 노포들이 매콤달콤한 즉석떡볶이를 내며 명물 상권을 이룬다.</li>
+        </ul>
+      </section>
+      <section id="heritage">
+        <h2>문화유산·문화시설</h2>
+        <ul>
+          <li><strong>명동성당</strong> — 1898년 완공된 한국 최초의 벽돌조 고딕 성당으로, 사적으로 지정된 천주교 서울대교구 주교좌 성당이다.</li>
+          <li><strong>남산골한옥마을</strong> — 필동에 전통 한옥 다섯 채와 정원을 옮겨 조성한 문화시설로, 세시풍속과 전통 공연·체험 행사가 열린다.</li>
+          <li><strong>충무아트센터</strong> — 흥인동에 자리한 중구의 복합 공연장으로, 대극장과 소극장을 갖춰 뮤지컬과 연극 무대가 꾸준히 오른다.</li>
+          <li><strong>서울빛초롱축제</strong> — 청계천 일대에서 겨울마다 열리는 등불 축제로, 형형색색 빛 조형물이 물길을 밝히는 서울 대표 야간 행사다.</li>
+          <li><strong>정동야행</strong> — 덕수궁 돌담길과 정동 일대에서 근대 역사와 문화를 밤에 걸으며 체험하는 도심형 야간 축제다.</li>
+        </ul>
+      </section>
+      <section id="nature">
+        <h2>자연·휴식</h2>
+        <ul>
+          <li><strong>남산공원</strong> — 해발 265미터 남산 자락에 조성된 도심 속 공원으로 산책로와 순환버스, 봉수대가 어우러져 시민의 쉼터가 된다.</li>
+          <li><strong>청계천</strong> — 복원 이후 도심을 가로지르는 물길을 따라 산책로가 이어져, 직장인과 관광객이 즐겨 찾는 대표적 도심 휴식 공간이다.</li>
+          <li><strong>남산 순환산책로</strong> — 남산을 완만하게 한 바퀴 도는 둘레길로, 서울 도심 풍경과 사계절 숲을 함께 즐길 수 있는 걷기 코스다.</li>
+          <li><strong>장충단공원</strong> — 장충동에 자리한 근대 사적 공원으로, 수령 오랜 나무와 산책로가 어우러져 남산과 이어지는 녹지축을 이룬다.</li>
+        </ul>
+      </section>
+      <section id="transport">
+        <h2>교통</h2>
+        <p>중구에는 서울 지하철 1호선부터 6호선까지 대부분의 노선이 지나 서울에서 손꼽히는 교통 요지로 꼽힌다. 서울역은 KTX와 공항철도, 1호선·4호선·경의중앙선이 만나는 국가적 관문이며, 시청역과 을지로입구역은 업무지구를 촘촘히 잇는다. 명동역·회현역·충무로역·동대문역사문화공원역 등은 관광과 상권의 출입구 역할을 한다. 세종대로와 을지로, 퇴계로가 도심을 동서로 관통하고 남대문로가 남북을 가르며 간선 교통을 담당한다. 서울역과 명동 일대에서는 공항버스와 시내버스 노선이 촘촘히 연결돼 도심 접근성이 뛰어나다.</p>
+      </section>
+      <section id="symbols">
+        <h2>지역 상징</h2>
+        <ul class="symbols">
+          <li>구화(꽃): 장미</li>
+          <li>구목(나무): 소나무</li>
+          <li>구조(새): 까치</li>
+        </ul>
+      </section>
+      <section id="faq">
+        <h2>자주 묻는 질문</h2>
+        <div class="faq">
+          <details>
+            <summary>중구청은 어디에 있나요?</summary>
+            <p>중구청은 광희동 일대에 자리하며, 지하철 2·4·5호선 동대문역사문화공원역이 가까워 접근이 편리합니다.</p>
+          </details>
+          <details>
+            <summary>중구에서 꼭 가봐야 할 명소는 어디인가요?</summary>
+            <p>명동과 남대문시장에서 쇼핑과 먹거리를 즐기고, 덕수궁과 남산 N서울타워에서 역사와 전망을 함께 둘러보길 추천합니다.</p>
+          </details>
+          <details>
+            <summary>중구는 서울에서 어느 정도 크기인가요?</summary>
+            <p>면적이 9.96제곱킬로미터로 서울 25개 자치구 가운데 가장 작으며, 인구도 약 12만 명으로 가장 적은 편입니다.</p>
+          </details>
+          <details>
+            <summary>중구로 가는 대중교통은 어떻게 되나요?</summary>
+            <p>서울 지하철 1호선부터 6호선까지 대부분의 노선이 지나고 서울역과 시청역이 있어 서울 어디서나 접근하기 편합니다.</p>
+          </details>
+          <details>
+            <summary>신당동 떡볶이 골목은 무엇으로 유명한가요?</summary>
+            <p>신당동은 즉석떡볶이의 발상지로 알려진 곳으로, 오래된 노포들이 매콤달콤한 즉석떡볶이를 내는 먹자골목으로 이름났습니다.</p>
+          </details>
+          <details>
+            <summary>중구에서 열리는 대표 축제는 무엇인가요?</summary>
+            <p>겨울에는 청계천에서 서울빛초롱축제가, 봄가을에는 덕수궁 돌담길 일대에서 정동야행이 열립니다.</p>
+          </details>
+        </div>
+      </section>
+      <section id="links">
+        <h2>공식 링크</h2>
+        <ul>
+          <li><a href="https://www.junggu.seoul.kr" rel="noopener">서울특별시 중구청</a></li>
+        </ul>
+      </section>
+      <section id="sources">
+        <h2>출처</h2>
+        <ul class="sources">
+          <li><a href="https://ko.wikipedia.org/wiki/중구_(서울특별시)" rel="noopener">중구 (서울특별시) - 위키백과</a> (조회 2026-07-08)</li>
+          <li><a href="https://www.junggu.seoul.kr/content.do?cmsid=14056" rel="noopener">구정현황 | 중구소개 | 서울시 중구청</a> (조회 2026-07-08)</li>
+          <li><a href="https://ko.wikipedia.org/wiki/서울빛초롱축제" rel="noopener">서울빛초롱축제 - 위키백과</a> (조회 2026-07-08)</li>
+        </ul>
+      </section> newspaper column engine */
+.jp-content{
+  columns:3;
+  column-gap:2rem;
+  column-rule:1px solid rgba(0,0,0,.34);
+  text-align:justify;
+  word-break:keep-all;
+  hyphens:auto;
+}
+.jp-content section{
+  break-inside:avoid-column;
+  margin:0 0 1.4rem;
+  padding-bottom:.2rem;
+}
+.jp-content h2{
+  font-family:var(--news-serif);
+  color:var(--ink);
+  font-weight:900;
+  font-size:1.12rem;
+  line-height:1.2;
+  margin:0 0 .35rem;
+  padding-bottom:.28rem;
+  border-bottom:2px solid var(--ink);
+  position:relative;
+}
+.jp-content h2::after{
+  content:"";position:absolute;left:0;bottom:-2px;width:38%;
+  height:2px;background:var(--gold);
+}
+.jp-content h3{
+  color:#1a1a1a;font-weight:700;font-size:.96rem;
+  margin:.7rem 0 .25rem;
+}
+.jp-content p{margin:0 0 .62rem;font-size:.9rem;}
+.jp-content section:first-of-type h2{
+  font-size:1.02rem;
+}
+.jp-content ul,.jp-content ol{margin:.3rem 0 .7rem;padding-left:1.2rem;font-size:.88rem;}
+.jp-content li{margin:0 0 .32rem;}
+.jp-content a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--gold);}
+.jp-content a:hover{background:var(--gold);}
+
+/* First real section — the "cover story" gets a lead-in flourish */
+.jp-content #intro{
+  column-span:all;
+  border-bottom:2px solid var(--rule);
+  margin-bottom:1.5rem;padding-bottom:1rem;
+}
+.jp-content #intro h2{
+  font-size:1.4rem;text-align:center;border:none;
+}
+.jp-content #intro h2::after{
+  left:50%;transform:translateX(-50%);width:60px;bottom:0;
+}
+.jp-content #intro p{
+  font-size:.98rem;columns:2;column-gap:1.8rem;
+  column-rule:1px solid rgba(0,0,0,.25);
+}
+
+/* facts table styling */
+.jp-content .facts{
+  break-inside:avoid;
+  background:rgba(0,0,128,.04);
+  border-top:2px solid var(--ink);
+  border-bottom:2px solid var(--ink);
+  padding:.5rem .7rem;
+}
+.jp-content .facts h2{border-bottom-color:var(--ink);}
+.jp-content .facts table{width:100%;border-collapse:collapse;font-size:.85rem;}
+.jp-content .facts td,.jp-content .facts th{
+  padding:4px 3px;text-align:left;
+  border-bottom:1px dotted rgba(0,0,0,.3);vertical-align:top;
+}
+.jp-content .facts th{color:#555;font-weight:400;white-space:nowrap;padding-right:9px;}
+.jp-content .facts td{color:var(--ink);font-weight:700;}
+.jp-content .facts dl{margin:0;}
+.jp-content .facts dt{color:#555;font-weight:400;font-size:.82rem;margin-top:.4rem;}
+.jp-content .facts dd{margin:0 0 .1rem;color:var(--ink);font-weight:700;}
+
+/* symbols */
+.jp-content .symbols{
+  break-inside:avoid;
+  border:1px solid var(--ink);padding:.6rem .7rem;
+  background:rgba(207,181,59,.1);
+}
+.jp-content .symbols h2{border-bottom:1px solid var(--gold);}
+.jp-content .symbols ul,.jp-content .symbols dl{font-size:.86rem;}
+
+/* FAQ — details/summary as classifieds Q&A */
+.jp-content .faq{break-inside:avoid;}
+.jp-content .faq details{
+  border-bottom:1px solid rgba(0,0,0,.3);
+  padding:.35rem 0;
+}
+.jp-content .faq summary{
+  cursor:pointer;font-weight:700;color:var(--ink);
+  font-size:.9rem;list-style:none;position:relative;
+  padding-left:1.2rem;
+}
+.jp-content .faq summary::-webkit-details-marker{display:none;}
+.jp-content .faq summary::before{
+  content:"問";position:absolute;left:0;top:0;
+  color:var(--gold);font-weight:900;
+}
+.jp-content .faq details[open] summary::before{content:"答";color:var(--ink);}
+.jp-content .faq p{margin:.4rem 0 .2rem;font-size:.86rem;color:#2a2a2a;}
+
+/* ------- Colophon / footer ------- */
+.jp-colophon{
+  margin-top:22px;padding-top:10px;
+  border-top:6px double var(--ink);
+  text-align:center;font-size:.74rem;color:#444;
+  font-family:"Noto Serif",Georgia,serif;
+}
+.jp-colophon .jp-mark{color:var(--ink);font-weight:900;letter-spacing:.05em;}
+.jp-colophon a{color:var(--ink);}
+
+/* ------- Reading progress hairline (JS enhancement) ------- */
+.jp-progress{
+  position:fixed;left:0;top:0;height:3px;width:0;
+  background:var(--gold);z-index:40;transition:width .1s linear;
+}
+
+/* ------- Responsive ------- */
+@media (max-width:820px){
+  .jp-lead{grid-template-columns:1fr;}
+  .jp-lead-main{border-right:none;border-bottom:2px solid var(--rule);padding-right:4px;}
+  .jp-lead-side{padding-left:4px;}
+  .jp-content{columns:2;column-gap:1.4rem;}
+  .jp-content #intro p{columns:1;}
+}
+@media (max-width:560px){
+  .jp-lead-body{columns:1;}
+  .jp-content{columns:1;column-rule:none;}
+  .jp-index{justify-content:flex-start;}
+  .jp-title{font-size:2.3rem;}
+}
+@media print{
+  .jp-index,.jp-progress{display:none;}
+}
+</style>
+
+<div class="jp-progress" aria-hidden="true"></div>
+
+<article class="jung-paper" role="document" aria-label="서울특별시 중구 지역 신문 랜딩">
+
+  <!-- ============ MASTHEAD ============ -->
+  <header class="jp-plate">
+    <div class="jp-ears">
+      <span><b>서울특별시</b> · 도심 문화 특별판</span>
+      <span>발행 <b>kr-seoul-jung</b> 편집국</span>
+    </div>
+    <h1 class="jp-title">중구<span class="jp-gu"> 일보</span></h1>
+    <p class="jp-sub">The Jung-gu Journal — 서울특별시 중구 종합 지역 정보</p>
+    <div class="jp-dateline">
+      <span class="jp-vol" id="jp-vol">제1면 · 종합 · JUNG-GU EDITION</span>
+      <span id="jp-today">활자로 읽는 중구의 하루</span>
+      <span class="jp-price">한 부의 기록</span>
+    </div>
+  </header>
+
+  <!-- ============ INDEX BAR (nav enhancement) ============ -->
+  <nav class="jp-index" id="jp-index" aria-label="지면 색인">
+    <span class="jp-idx-label">지면 안내</span>
+  </nav>
+
+  <!-- ============ LEAD / HERO ============ -->
+  <section class="jp-lead" aria-label="머리기사">
+    <div class="jp-lead-main">
+      <p class="jp-kicker">오늘의 머리기사 · Front Page</p>
+      <h2 class="jp-headline">중구 지역 정보 · 서울특별시</h2>
+      <p class="jp-deck">중구는 서울 도심 한복판에 위치한 자치구로, 명동과 남대문시장을 축으로 한 상업과 남산을 품은 도심 녹지가 어우러진 곳이다. 서울시청, 서울역, 을지로 업무지구가 한데 모여 대한민국 행정과 교통, 금융의 관문 역할을 오랫동안 해 왔다. 덕수궁 돌담길과 명동성당, 정동 일대에는 개항기와 근대의 흔적이 골목마다 촘촘히 남아 있다. 낮에는 넥타이 부대와 외국인 관광객으로, 밤에는 명동과 을지로 노포 상권으로 밤낮없이 붐비는 도심의 심장이다. 면적은 서울에서 가장 작지만 오가는 유동 인구와 경제적 밀도는 어느 구에도 뒤지지 않는다.</p>
+      <div class="jp-lead-body">
+        <p>중구라는 지명은 일제강점기에 남촌 일대가 경성부의 중심이라 하여 붙여졌고, 1943년 6월 10일 구제 실시와 함께 중구역소가 설치되면서 행정구역으로 자리 잡았다. 이어 1946년 9월 28일에 서울시 중구로 승격되었고, 1979년 현재의 중구청 청사가 완공되어 오늘에 이른다. 조선시대에는 청계천을 경계로 남산 자락에 남촌이 형성되었고, 이곳에 벼슬에서 물러난 선비와 하급 관리들이 모여 살았다. 개항 이후 명동과 충무로 일대가 근대 금융과 인쇄, 상업의 중심지로 빠르게 성장하면서 도심의 격이 달라졌다. 지금도 서울시청과 한국은행 본점을 비롯한 주요 기관이 밀집해 서울의 원도심이자 심장부로 기능하고 있다.</p>
+        <p>중구는 2024년 기준 인구가 약 12만 명으로 서울에서 인구가 가장 적은 자치구지만, 주간 유동 인구는 이를 몇 배로 웃도는 전형적인 중심업무지구다. 74개 법정동과 15개 행정동으로 구성되며 구청은 광희동에 자리한다. 소공동·북창동에는 무역상사·은행 본점·대기업 사옥이 몰려 있고, 을지로에는 기계·공구·조명·인쇄 등 도심형 제조 상권이 촘촘한 골목을 이룬다. 남대문시장과 명동, 롯데·신세계 백화점이 재래시장과 현대 유통을 나란히 품어 소비 지형이 다층적이다. 조선일보·중앙일보 등 언론사 본사와 금융기관이 집중돼 행정·금융·언론이 교차하는 도심의 성격이 뚜렷하다.</p>
+      </div>
+    </div>
+    <aside class="jp-lead-side" aria-label="한눈에 보는 중구">
+      <p class="jp-side-head">한눈에 보는 중구</p>
+      <ul class="jp-fastfacts" id="jp-fastfacts">
+        <li><span>행정구역</span><span>서울특별시 중구</span></li>
+        <li><span>식별자</span><span>kr-seoul-jung</span></li>
+      </ul>
+      <p class="jp-side-head">지리와 자연</p>
+      <div class="jp-weatherbox">
+        <b>지세 · 물길 —</b> 중구는 서울 도심부 정중앙에 자리하며 북쪽으로 종로구, 동쪽으로 성동구, 서쪽으로 서대문구·마포구, 남쪽으로 용산구와 맞닿아 있다. 면적은 9.96제곱킬로미터로 서울 25개 자치구 가운데 가장 좁지만, 그 안에 업무·상업·주거 기능이 빼곡히 압축돼 있다. 남쪽 경계에는 해발 265미터의 남산이 용산구와 걸쳐 솟아 도심 어디서나 눈에 들어오는 상징적 녹지가 된다. 북악산과 남산 자락에서 발원한 청계천이 구의 북부를 동서로 가로질러 흐른 뒤 중랑천을 만나 한강으로 흘러든다. 대체로 평지가 넓게 펼쳐진 도심이지만 남산과 필동·장충동 일대에는 완만한 구릉지가 이어져 지형에 표정을 더한다.
+      </div>
+      <p class="jp-side-head" style="margin-top:14px;">교통</p>
+      <div class="jp-weatherbox">
+        <b>도심 접근 —</b> 중구에는 서울 지하철 1호선부터 6호선까지 대부분의 노선이 지나 서울에서 손꼽히는 교통 요지로 꼽힌다. 서울역은 KTX와 공항철도, 1호선·4호선·경의중앙선이 만나는 국가적 관문이며, 시청역과 을지로입구역은 업무지구를 촘촘히 잇는다. 명동역·회현역·충무로역·동대문역사문화공원역 등은 관광과 상권의 출입구 역할을 한다. 세종대로와 을지로, 퇴계로가 도심을 동서로 관통하고 남대문로가 남북을 가르며 간선 교통을 담당한다. 서울역과 명동 일대에서는 공항버스와 시내버스 노선이 촘촘히 연결돼 도심 접근성이 뛰어나다.
+      </div>
+    </aside>
+  </section>
+
+  <!-- ============ MAIN BODY: BROADSHEET COLUMNS ============ -->
+  <div class="jp-body-wrap">
+    <p class="jp-body-title">중구 종합 · 지역 대관</p>
+    <div class="jp-content" id="jp-content">
+            <section id="intro">
         <h2>지역 소개</h2>
         <p>중구는 서울 도심 한복판에 위치한 자치구로, 명동과 남대문시장을 축으로 한 상업과 남산을 품은 도심 녹지가 어우러진 곳이다. 서울시청, 서울역, 을지로 업무지구가 한데 모여 대한민국 행정과 교통, 금융의 관문 역할을 오랫동안 해 왔다. 덕수궁 돌담길과 명동성당, 정동 일대에는 개항기와 근대의 흔적이 골목마다 촘촘히 남아 있다. 낮에는 넥타이 부대와 외국인 관광객으로, 밤에는 명동과 을지로 노포 상권으로 밤낮없이 붐비는 도심의 심장이다. 면적은 서울에서 가장 작지만 오가는 유동 인구와 경제적 밀도는 어느 구에도 뒤지지 않는다.</p>
       </section>
@@ -259,9 +820,113 @@ footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line);
         </ul>
       </section>
     </div>
-    <footer>
-      <p>이 페이지는 공개 자료를 바탕으로 작성된 중구 지역 정보 페이지입니다.</p>
-    </footer>
-  </main>
+  </div>
+
+  <!-- ============ COLOPHON ============ -->
+  <footer class="jp-colophon">
+    <p><span class="jp-mark">중구 일보</span> · 서울특별시 중구 지역 정보 편집국</p>
+    <p>편집·발행 kr-seoul-jung &nbsp;|&nbsp; <a href="https://kr-seoul-jung.github.io/">https://kr-seoul-jung.github.io/</a></p>
+    <p style="font-style:italic;color:#666;margin-top:4px;">활자는 도시를 기억한다 — 명동에서 정동까지, 서울의 오래된 중심을 기록합니다.</p>
+  </footer>
+</article>
+
+<script>
+(function(){
+  var root=document.querySelector('.jung-paper');
+  if(!root) return;
+  var content=document.getElementById('jp-content');
+
+  /* ---- 1) Dateline: real date, classic broadsheet format ---- */
+  try{
+    var wd=['일','월','화','수','목','금','토'];
+    var n=new Date();
+    var kd=n.getFullYear()+'년 '+(n.getMonth()+1)+'월 '+n.getDate()+'일 '+wd[n.getDay()]+'요일';
+    var todayEl=document.getElementById('jp-today');
+    if(todayEl) todayEl.textContent=kd;
+    var volEl=document.getElementById('jp-vol');
+    if(volEl){
+      var doy=Math.ceil((n-new Date(n.getFullYear(),0,0))/864e5);
+      volEl.textContent='제'+n.getFullYear()+'권 · 제'+doy+'호 · 종합';
+    }
+  }catch(e){}
+
+  /* ---- 2) Read region-data JSON to enrich the fast-facts rail ---- */
+  try{
+    var dataEl=document.getElementById('region-data');
+    if(dataEl){
+      var d=JSON.parse(dataEl.textContent||'{}');
+      var ff=document.getElementById('jp-fastfacts');
+      function row(k,v){
+        if(!v||!ff) return;
+        var li=document.createElement('li');
+        var a=document.createElement('span');a.textContent=k;
+        var b=document.createElement('span');b.textContent=v;
+        li.appendChild(a);li.appendChild(b);ff.appendChild(li);
+      }
+      if(d.coords && d.coords.lat!=null && d.coords.lng!=null){
+        row('좌표', Number(d.coords.lat).toFixed(3)+'°N '+Number(d.coords.lng).toFixed(3)+'°E');
+      }
+      if(Array.isArray(d.landmarks) && d.landmarks.length){
+        row('주요 명소', d.landmarks.length+'곳 수록');
+      }
+      if(Array.isArray(d.cultural_heritage) && d.cultural_heritage.length){
+        row('문화유산', d.cultural_heritage.length+'건 기록');
+      }
+      if(Array.isArray(d.nature_rest) && d.nature_rest.length){
+        row('자연·쉼터', d.nature_rest.length+'곳');
+      }
+      if(Array.isArray(d.faq) && d.faq.length){
+        row('독자 문답', d.faq.length+'문');
+      }
+    }
+  }catch(e){}
+
+  /* ---- 3) Build the index bar from actual sections (progressive nav) ---- */
+  try{
+    var idx=document.getElementById('jp-index');
+    if(idx && content){
+      var labels={intro:'지역 소개',facts:'개요',history:'연혁',geography:'지리',
+        characteristics:'특징',landmarks:'명소',heritage:'문화유산',nature:'자연·쉼터',
+        transport:'교통',symbols:'상징',faq:'문답',links:'더보기',sources:'출처'};
+      var secs=content.querySelectorAll('section[id]');
+      secs.forEach(function(s){
+        var id=s.id;
+        var name=labels[id]|| (s.querySelector('h2')?s.querySelector('h2').textContent.trim():id);
+        var a=document.createElement('a');
+        a.href='#'+id;a.textContent=name;
+        a.addEventListener('click',function(ev){
+          ev.preventDefault();
+          s.scrollIntoView({behavior:'smooth',block:'start'});
+          s.style.transition='background .2s';
+          s.style.background='rgba(207,181,59,.28)';
+          setTimeout(function(){s.style.background='';},900);
+        });
+        idx.appendChild(a);
+      });
+      if(!secs.length){ idx.style.display='none'; }
+    }
+  }catch(e){}
+
+  /* ---- 4) Reading-progress gold hairline ---- */
+  try{
+    var bar=document.querySelector('.jp-progress');
+    if(bar){
+      var tick=function(){
+        var h=document.documentElement;
+        var max=(h.scrollHeight-h.clientHeight)||1;
+        var p=Math.min(100,Math.max(0,(h.scrollTop||window.pageYOffset)/max*100));
+        bar.style.width=p.toFixed(1)+'%';
+      };
+      window.addEventListener('scroll',tick,{passive:true});
+      window.addEventListener('resize',tick);
+      tick();
+    }
+  }catch(e){}
+
+  /* ---- 5) Newspaper-style leading caps: mark first section for :first-letter is CSS-only,
+            but ensure intro paragraph exists so the drop-cap rule has a target ---- */
+  /* (purely CSS-driven; nothing required here — kept as progressive no-op guard) */
+})();
+</script>
 </body>
 </html>
